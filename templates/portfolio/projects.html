@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section id="inner-headline">
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <div class="inner-heading">
+          <h2>Portfolio <strong>4 cols</strong></h2>
+        </div>
+      </div>
+      <div class="span8">
+        <ul class="breadcrumb">
+          <li>
+            <a href="#"><i class="icon-home"></i></a
+            ><i class="icon-angle-right"></i>
+          </li>
+          <li><a href="#">Portfolio</a><i class="icon-angle-right"></i></li>
+          <li class="active">Portfolio 4 columns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="content">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <ul class="portfolio-categ filter">
+            <li><a href="{% url 'projects' %}">All</a></li>
+          {% for categorey in categories %}
+          <li><a href="{% url 'projects' %}?categorey={{ categorey.title}}">{{categorey.title}}</a></li>
+          
+          {% endfor %}
+        </ul>
+        <div class="clearfix"></div>
+        <div class="row">
+          <section id="projects">
+            <ul id="thumbs" class="portfolio">
+              <!-- Item Project and Filter Name -->
+            {% for work in works_list %}
+              <li
+                class="item-thumbs span3 design"
+                data-id="id-0"
+                data-type="web"
+              >
+                <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                <a
+                  class="hover-wrap fancybox"
+                  data-fancybox-group="gallery"
+                  title="Portfolio name"
+                  href="{{ work.thumbnail.url }}"
+                >
+                  <span class="overlay-img"></span>
+                  <span class="overlay-img-thumb font-icon-plus"></span>
+                </a>
+                <!-- Thumb Image and Description -->
+                <img
+                  src="{{ work.thumbnail.url }}"
+                  alt="{{ work.overview }}"
+                />
+              </li>
+          {% endfor %}
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
