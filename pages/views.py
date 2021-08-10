@@ -125,3 +125,7 @@ def testimonial(request):
         'testimonial_list': testimonial_list
     }
     return render(request, 'pages/testimonial.html',context)
+
+
+def services(request):
+    return render(request, 'pages/services.html')

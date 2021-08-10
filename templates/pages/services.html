@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<section id="inner-headline">
+    <div class="container">
+      <div class="row">
+        <div class="span4">
+          <div class="inner-heading">
+            <h2>SERVICES</h2>
+          </div>
+        </div>
+        <div class="span8">
+          <ul class="breadcrumb">
+            <li><a href="#"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
+            <li><a href="#">Pages</a><i class="icon-angle-right"></i></li>
+            <li class="active">All services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="content">
+    <div class="container">
+ 
+      <!-- divider -->
+
+      <!-- end divider -->
+      <div class="row">
+        <div class="span12">
+          <h4>All  <strong>Services List</strong></h4>
+        </div>
+        <div class="span3">
+          <div class="pricing-box-alt">
+            <div class="pricing-heading">
+              <h3>Web <strong>Design</strong></h3>
+            </div>
+            <div class="pricing-terms">
+              <h6>Whatsapp (+8801752918611)</h6>
+            </div>
+            <div class="pricing-content">
+              <ul>
+                <li><i class="icon-ok"></i> Any kind of Design</li>
+                
+                <li><i class="icon-ok"></i> Tailwind CSS</li>
+                <li><i class="icon-ok"></i> Bootstrap v5.0</li>
+                <li><i class="icon-ok"></i> Html5,CSS3,Jquery</li>
+                <li><i class="icon-ok"></i> 24x7 support available</li>
+              </ul>
+            </div>
+            <div class="pricing-action">
+              <a href="{% url 'contact' %}" class="btn btn-medium btn-theme"><i class="icon-bolt"></i> Contact now</a>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+            <div class="pricing-box-alt special">
+              <div class="pricing-heading">
+                <h3>React <strong>JS</strong></h3>
+              </div>
+              <div class="pricing-terms">
+                <h6>Whatsapp (+8801752918611)</h6>
+              </div>
+              <div class="pricing-content">
+                <ul>
+                  <li><i class="icon-ok"></i> Web Design</li>
+                 
+                  <li><i class="icon-ok"></i> Interactive UI</li>
+                  <li><i class="icon-ok"></i> Redux</li>
+                  <li><i class="icon-ok"></i>NodeJS,API integration </li>
+                  <li><i class="icon-ok"></i> 24x7 support available</li>
+                </ul>
+              </div>
+              <div class="pricing-action">
+                <a href="{% url 'contact' %}" class="btn btn-medium btn-theme"><i class="icon-bolt"></i> Contact now</a>
+              </div>
+            </div>
+          </div>
+        <div class="span3">
+          <div class="pricing-box-alt special">
+            <div class="pricing-heading">
+              <h4 style="color:white;">Web <strong>Development</strong></h4>
+            </div>
+            <div class="pricing-terms">
+              <h6>Whatsapp (+8801752918611)</h6>
+            </div>
+            <div class="pricing-content">
+              <ul>
+                <li><i class="icon-ok"></i>DJANGO</li>
+                
+                <li><i class="icon-ok"></i> Django Rest Framework</li>
+                <li><i class="icon-ok"></i> Payment Gateway Integration</li>
+                <li><i class="icon-ok"></i> Django with React</li>
+                
+                <li><i class="icon-ok"></i> 24x7 support available</li>
+              </ul>
+            </div>
+            <div class="pricing-action">
+              <a href="{% url 'contact' %}" class="btn btn-medium btn-theme"><i class="icon-bolt"></i> Contact now</a>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+            <div class="pricing-box-alt">
+              <div class="pricing-heading">
+                <h3>Web <strong>Scrap</strong></h3>
+              </div>
+              <div class="pricing-terms">
+                <h6>Whatsapp (+8801752918611)</h6>
+              </div>
+              <div class="pricing-content">
+                <ul>
+                  <li><i class="icon-ok"></i> Any Website Scrap</li>
+            
+                  <li><i class="icon-ok"></i> python</li>
+                  <li><i class="icon-ok"></i> Beautiful Soup</li>
+                  <li><i class="icon-ok"></i> Selenium</li>
+                  <li><i class="icon-ok"></i> 24x7 support available</li>
+                </ul>
+              </div>
+              <div class="pricing-action">
+                <a href="{% url 'contact' %}" class="btn btn-medium btn-theme"><i class="icon-bolt"></i> Contact now</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
