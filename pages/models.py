@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from random import random
+from django.urls import reverse
 from django.db.models.signals import pre_save
 # Create your models here.
 
@@ -29,7 +30,7 @@ class Works(models.Model):
     postimage1 = models.ImageField(upload_to='photos/%Y/%m/%d',null=True,blank=True)
     postimage2 = models.ImageField(upload_to='photos/%Y/%m/%d',null=True,blank=True)
     postimage3 = models.ImageField(upload_to='photos/%Y/%m/%d',null=True,blank=True)
-    file = models.FileField(upload_to='static/media',null=True)
+    file = models.FileField(upload_to='file',null=True)
     is_published = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     
@@ -37,7 +38,7 @@ class Works(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('post',kwargs={ 'slug': self.slug})
+        return reverse('details',kwargs={ 'slug': self.slug})
 
 def create_slug(instance, new_slug=None):
     slug = slugify(instance.title)
@@ -50,7 +51,32 @@ def create_slug(instance, new_slug=None):
         return create_slug(instance, new_slug=new_slug)
     return slug
     
-def pre_save_work_receiver(sender, instance, *args, **kwargs):
+def pre_save_details_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance)
-pre_save.connect(pre_save_work_receiver, Works)
+pre_save.connect(pre_save_details_receiver, Works)
+
+
+
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=150,null=True,blank=True)
+    email_from = models.EmailField(blank=True)
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    
+    def __str__(self):
+        return self.name
+    
+    
+class Testimonial(models.Model):
+    title = models.CharField(max_length=150)
+    client_name = models.CharField(max_length=100)
+    message = models.TextField(max_length=500,null=True,blank=True)
+    images = models.ImageField(upload_to='photos/client/%Y/%m/%d',null=True,blank=True)
+    company_name = models.CharField(max_length=100,null=True,blank=True)
+    site_url = models.URLField(blank=True,null=True)
+    
+    def __str__(self):
+        return self.title

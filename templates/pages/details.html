@@ -27,27 +27,26 @@
           <article>
             <div class="top-wrapper">
               <div class="post-heading">
-                <h3><a href="#">This is an example of portfolio detail</a></h3>
+                <h3><a href="#">{{details.title}}</a></h3>
               </div>
               <!-- start flexslider -->
               <div class="flexslider">
                 <ul class="slides">
                   <li>
-                    <img src="{% static 'img/works/full/image-01-full.jpg' %}" alt="" />
+                    <img src="{{ details.postimage1.url }}" alt="" />
                   </li>
                   <li>
-                    <img src="{% static 'img/works/full/image-02-full.jpg' %}" alt="" />
+                    <img src="{{ details.postimage2.url }}" alt="" />
                   </li>
                   <li>
-                    <img src="{% static 'img/works/full/image-03-full.jpg' %}" alt="" />
+                    <img src="{{ details.postimage3.url }}" alt="" />
                   </li>
                 </ul>
               </div>
               <!-- end flexslider -->
             </div>
             <p>
-              Qui ut ceteros comprehensam. Cu eos sale sanctus eligendi, id ius elitr saperet, ocurreret pertinacia pri an. No mei nibh consectetuer, semper laoreet perfecto ad qui, est rebum nulla argumentum ei. Fierent adipisci iracundia est ei, usu timeam persius
-              ea. Usu ea justo malis, pri quando everti electram ei, ex homero omittam salutatus sed.
+            {{ details.content }}
             </p>
           </article>
         </div>
@@ -56,16 +55,21 @@
             <div class="widget">
               <h5 class="widgetheading">Project information</h5>
               <ul class="folio-detail">
-                <li><label>Category :</label> Web design</li>
-                <li><label>Client :</label> ASU Company</li>
-                <li><label>Project date :</label> 26 March, 2013</li>
-                <li><label>Project URL :</label><a href="#">www.projectsiteurl.com</a></li>
+                <li><label>Category :</label> {{details.categories.title}}</li>
+                <li><label>Client Name:</label> {{details.clients}}</li>
+                <li><label>Project date :</label> {{details.projectDelevery}}</li>
+                <li><label>Project URL :</label><a href="#">{{details.projectUrl}}</a></li>
+                
+                <li><label>Project Details PDF:</label><a href="{{details.file.url}}" target="_blank">{{details.file.url}}</a></li>
+                
+          
+               
               </ul>
             </div>
             <div class="widget">
-              <h5 class="widgetheading">Text widget</h5>
+              <h5 class="widgetheading">Project Overview</h5>
               <p>
-                Lorem ipsum dolor sit amet, unum suscipiantur te cum, vide magna ea eam. At eos wisi tractatos temporibus. Ne has omnis harum. Ei mea graece delenit nominati. Ut dolore albucius torquatos vel, choro gubergren no mel.
+                {{details.overview}}
               </p>
             </div>
           </aside>
